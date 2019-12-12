@@ -1,0 +1,162 @@
+<project name="Big Change" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
+
+  <property file="build.properties"/>
+  <property environment="env"/>
+
+    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="ant-salesforce.jar" />
+        </classpath>
+    </taskdef>
+
+
+    <target name="removeConsole">
+        <replaceregexp match="(console\.[a-z]+\(.+\);)"
+                       replace="//\1"
+                       flags="gs">
+            <fileset dir=".">
+              <include name="**/aura/**"/>
+            </fileset>
+        </replaceregexp>
+    </target>
+
+
+
+  <target name="addConsole">
+      <replaceregexp match="//(console\.[a-z]+\(.+\);)"
+                     replace="\1"
+                     flags="gs">
+          <fileset dir=".">
+            <include name="**/aura/**"/>
+          </fileset>
+      </replaceregexp>
+  </target>
+
+  <target name="validate">
+    <echo message="Validate Info:" />
+    <echo message="  user = ${dev.username}" />
+    <sf:deploy username="${dev.username}"
+               password="${dev.password}"
+               serverurl="${dev.serverurl}"
+               deployRoot="."
+               maxPoll="1000"
+               pollWaitMillis="10000"
+               checkOnly="true" />
+  </target>
+
+  <target name="performProdValidation">
+    <echo message="Validate Info:" />
+    <echo message="  user = ${deployment.username}" />
+    <sf:deploy username="${deployment.username}"
+               password="${deployment.password}"
+               serverurl="${deployment.serverurl}"
+               deployRoot="."
+               maxPoll="1000"
+               pollWaitMillis="10000"
+               checkOnly="true" />
+  </target>
+
+  <target name="validateProd"
+          depends="removeConsole,performProdValidation,addConsole">
+  </target>
+
+  <target name="validateQa">
+    <echo message="Validate Info:" />
+    <echo message="  user = ${qa.username}" />
+    <sf:deploy username="${qa.username}"
+               password="${qa.password}"
+               serverurl="${qa.serverurl}"
+               deployRoot="."
+               maxPoll="1000"
+               pollWaitMillis="10000"
+               checkOnly="true" />
+  </target>
+
+  <target name="deploy">
+    <echo message="Validate Info:" />
+    <echo message=" user = ${dev.username}" />
+    <sf:deploy username="${dev.username}"
+               password="${dev.password}"
+               serverurl="${dev.serverurl}"
+               deployRoot="."
+               maxPoll="1000"
+               pollWaitMillis="10000" />
+  </target>
+
+  <target name="performProdDeployment">
+    <echo message="Deploy Info:" />
+    <echo message=" user = ${deployment.username}" />
+    <sf:deploy username="${deployment.username}"
+               password="${deployment.password}"
+               serverurl="${deployment.serverurl}"
+               deployRoot="."
+               maxPoll="1000"
+               pollWaitMillis="10000" />
+  </target>
+
+  <target name="deployProd"
+          depends="removeConsole,performProdDeployment,addConsole">
+  </target>
+
+  <target name="deployQa">
+    <echo message="Deploy Info:" />
+    <echo message=" user = ${qa.username}" />
+    <sf:deploy username="${qa.username}"
+               password="${qa.password}"
+               serverurl="${qa.serverurl}"
+               deployRoot="."
+               maxPoll="1000"
+               pollWaitMillis="10000" />
+  </target>
+
+  <target name="retrieveQa">
+    <echo message="Custom retrieve info:" />
+    <echo message="  source user = ${qa.username} " />
+    <sf:retrieve username="${qa.username}"
+                 password="${qa.password}"
+                 serverurl="${qa.serverurl}"
+                 retrieveTarget="."
+                 unpackaged="package.xml"
+                 pollWaitMillis="10000"
+                 maxPoll="5000" />
+  </target>
+
+
+  <target name="retrieveDevorg">
+    <echo message="Custom retrieve info:" />
+    <echo message="  source user = ${devorg.username} " />
+    <sf:retrieve username="${devorg.username}"
+                 password="${devorg.password}"
+                 serverurl="${devorg.serverurl}"
+                 retrieveTarget="."
+                 unpackaged="package.xml"
+                 pollWaitMillis="10000"
+                 maxPoll="5000" />
+  </target>
+
+
+
+  <target name="retrieve">
+    <echo message="Custom retrieve info:" />
+    <echo message="  source user = ${dev.username} " />
+    <sf:retrieve username="${dev.username}"
+                 password="${dev.password}"
+                 serverurl="${dev.serverurl}"
+                 retrieveTarget="."
+                 unpackaged="package.xml"
+                 pollWaitMillis="10000"
+                 maxPoll="5000" />
+  </target>
+    <target name="retrieveProd">
+    <echo message="Custom retrieve info:" />
+    <echo message="  source user = ${deployment.username} " />
+    <sf:retrieve username="${deployment.username}"
+                 password="${deployment.password}"
+                 serverurl="${deployment.serverurl}"
+                 retrieveTarget="."
+                 unpackaged="package.xml"
+                 pollWaitMillis="10000"
+                 maxPoll="5000" />
+  </target>
+
+</project>

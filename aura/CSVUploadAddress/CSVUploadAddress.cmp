@@ -1,0 +1,73 @@
+<aura:component controller="CSVCreator" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes">
+	<aura:attribute name="csvObject" type="CSVObject"/>
+	<aura:attribute name="csvString" type="String"/>
+    <aura:attribute name="selectedObject" type="String"/>
+	<aura:attribute name="fieldNames" type="List" access="public"/>
+    <aura:attribute name="objectNames" type="List" access="public"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+                           
+	<aura:handler name="change" value="v.csvString" action="{!c.handleGetCSV}"/>
+	<aura:handler name="change" value="v.selectedObject" action="{!c.getFields}"/>
+	
+	<div class="slds-card">
+		<div class="slds-card__header slds-grid">
+			<header class="slds-media slds-media_center slds-has-flexi-truncate">
+				<h2 class="slds-card__header-title">
+						<span>CSV Dataloader</span>
+					</h2>
+                <div class="slds-media__body">
+                    <Center>
+                       <!-- <lightning:select aura:id="selectedObject" name="selectedObject" label="Select Object" required="true" 
+                              value="{!v.selectedObject}" onchange="{!c.showRecType}" 
+                              messageWhenValueMissing="You must define the object type">
+                            <option value="None">None</option>
+                            <aura:iteration items="{!v.objectNames}" var="item">
+                                <option text="{!item}" value="{!item}"/>
+                            </aura:iteration>
+                        </lightning:select> -->
+              		</Center>
+					
+				</div>
+                
+				<button class="slds-button slds-button_success" onclick="{!c.saveData}">Insert</button>
+                <button class="slds-button slds-button_destructive" onclick="{!c.cleanData}">Clean Data</button>
+				
+            </header>
+            
+		</div>
+		<div class="slds-card__body slds-card__body_inner">
+			<input type="file" class="file" aura:id="file" onchange="{!c.handleUploadFinished}"/>
+			<aura:if isTrue="{!not(empty(v.csvObject))}">
+				<table class="slds-table">
+					<thead>
+						<tr>
+							<aura:iteration items="{!v.csvObject.headers}" var="header">
+                                <th>{!header.column_name}
+                                    <br/>
+                                     
+                                  <!--  <lightning:select aura:id="fieldType" name="fieldType" label="Field Type" required="true" 
+                                                    value="{!header.column_Type}" onchange="{!c.showRecType}" 
+                                                    messageWhenValueMissing="You must define the field type">
+                                    <option value=""> </option>
+                                    <aura:iteration items="{!v.fieldNames}" var="item">
+                                        <option text="{!item.label}" value="{!item.value}"/>
+                                    </aura:iteration>
+                                    </lightning:select> -->
+                                </th>
+							</aura:iteration>
+						</tr>
+					</thead>
+					<tbody id="table_body">
+						<aura:iteration items="{!v.csvObject.lines}" var="line">
+							<tr>
+								<aura:iteration items="{!line}" var="cell">
+									<td>{!cell}</td>
+								</aura:iteration>
+							</tr>
+						</aura:iteration>
+					</tbody>
+				</table>
+			</aura:if>
+		</div>
+	</div>
+</aura:component>

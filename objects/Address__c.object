@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>true</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Organization that address is associated to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Organization that address is associated to</inlineHelpText>
+        <label>Organization</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Address</relationshipLabel>
+        <relationshipName>Addresss</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <description>NW O status of address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>NW O Address status with NeighborWorks (Active?)</inlineHelpText>
+        <label>Active</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>true</default>
+                    <label>Yes</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Address_Description__c</fullName>
+        <description>Additional description of address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Additional description of address</inlineHelpText>
+        <label>Address Description</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Address_Line_1__c</fullName>
+        <description>Address Line 1</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Address Line 1 detail</inlineHelpText>
+        <label>Address Line 1 (deprecated)</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_Line_2__c</fullName>
+        <description>Address Line 2</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Address Line 2 detail</inlineHelpText>
+        <label>Address Line 2</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Adress_Type__c</fullName>
+        <description>Category of address entered</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Category of address entered</inlineHelpText>
+        <label>Address  Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Street Address (FedEx)</fullName>
+                    <default>false</default>
+                    <label>Street Address (FedEx)</label>
+                </value>
+                <value>
+                    <fullName>Mailing Address</fullName>
+                    <default>false</default>
+                    <label>Mailing Address</label>
+                </value>
+                <value>
+                    <fullName>P.O. Box</fullName>
+                    <default>false</default>
+                    <label>P.O. Box</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <description>City for address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>City for address</inlineHelpText>
+        <label>City</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Addresss</relationshipLabel>
+        <relationshipName>Addresss</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DataSyncExternalID__c</fullName>
+        <description>Corresponding DataSync id for integration purposes</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Corresponding DataSync id for integration purposes</inlineHelpText>
+        <label>DataSync External Id</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsContactAddress__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this for contact address only</inlineHelpText>
+        <label>Is Contact Address?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mapping_code__c</fullName>
+        <externalId>false</externalId>
+        <label>Mapping code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Main Office of the NWO</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Main Office of the NWO</inlineHelpText>
+        <label>Primary(For Organizations Only)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <description>State associated to address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>State associated to address</inlineHelpText>
+        <label>State</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>State</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>pcode__c</fullName>
+        <externalId>false</externalId>
+        <label>pcode</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>zip_code__c</fullName>
+        <description>Zip code associated to address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Zip code associated to address</inlineHelpText>
+        <label>Zip code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Address</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Address_Description__c</columns>
+        <columns>IsContactAddress__c</columns>
+        <columns>Primary__c</columns>
+        <columns>Adress_Type__c</columns>
+        <columns>City__c</columns>
+        <columns>State__c</columns>
+        <columns>zip_code__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Address Line 1</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Addresses</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Address_Description__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Adress_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IsContactAddress__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Primary__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>City__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>State__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>zip_code__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Address_Description__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Adress_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IsContactAddress__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>City__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>State__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>zip_code__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Primary__c</lookupFilterFields>
+        <lookupFilterFields>Adress_Type__c</lookupFilterFields>
+        <lookupFilterFields>Address_Line_1__c</lookupFilterFields>
+        <lookupFilterFields>City__c</lookupFilterFields>
+        <lookupFilterFields>zip_code__c</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>Adress_Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IsContactAddress__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Primary__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>City__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>zip_code__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Address_Description__c</searchFilterFields>
+        <searchFilterFields>Primary__c</searchFilterFields>
+        <searchFilterFields>Adress_Type__c</searchFilterFields>
+        <searchFilterFields>Address_Line_1__c</searchFilterFields>
+        <searchFilterFields>City__c</searchFilterFields>
+        <searchFilterFields>State__c</searchFilterFields>
+        <searchFilterFields>zip_code__c</searchFilterFields>
+        <searchResultsAdditionalFields>Address_Description__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Adress_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IsContactAddress__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>State__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>zip_code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Zip_Code_Validation</fullName>
+        <active>true</active>
+        <description>Validate that the US zip code format is enforced</description>
+        <errorConditionFormula>NOT(REGEX(zip_code__c, &quot;\\d{5}(-\\d{4})?&quot;))</errorConditionFormula>
+        <errorDisplayField>zip_code__c</errorDisplayField>
+        <errorMessage>Zip code must be formatted as zip or zip plus 4</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>New_Address</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>New Address</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/AddressValidatorv4?Accid={!Account.Id}</url>
+    </webLinks>
+</CustomObject>
