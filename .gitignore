@@ -9,7 +9,7 @@ src/.DS_Store
 .externalToolBuilders
 .project
 .settings
-build.properties
+./build.properties
 /test_results.json
 /test_results.xml
 /force-app/*
